@@ -1,14 +1,21 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<fstream>// File Handling 
 #include<stack>
 #include<ctime> // Library for Date & Time 
 using namespace std;
 
+struct User
+{
+    string username; 
+    string password;
+    
+};
 
 typedef struct student{
 string name;
-int id
+int id;
 
 }user;
 
@@ -28,8 +35,10 @@ private:
       stack<Expense> undo,redo;//for undo redo 
       
 public:
-
+    void Register();
+    void login();
     Expense input();
+    string getDate();
     void addExpense();         // 1. Add Expense
     void viewExpense();       // 2. View Expenses
     void searchExpenseByMoney();  // 3. Search Expense (By Money)
@@ -51,11 +60,26 @@ Expense functions::input(){
     getline(cin,expense.description);
     cout<<"Enter the amount :";
     cin>>expense.amount;
+    expense.date = getDate();
     expenseCount++;
     undo.push(expense);//for keep the privious actions;
     return expense;
 
 }
+
+string functions::getDate(){
+    // Get current time
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    int day = ltm->tm_mday;
+    int month = 1 + ltm->tm_mon;
+    int year = 1 + ltm->tm_year;
+
+    // Convert To String 
+    return to_string(day) + "/" + to_string(month) + "/" + to_string(year);
+}
+
 void functions::addExpense(){
     expense[expenseCount]=input();// input
 }
@@ -79,7 +103,13 @@ void functions::viewExpense(){
     }
 }
 
+void functions::searchExpenseByDate(){
+    string dateToFind;
+    cout<<"Enter Date (Format dd/mm/yyyy): ";
+    cin>>dateToFind;
 
+    
+}
 
 
 void functions::undoLastAction(){
