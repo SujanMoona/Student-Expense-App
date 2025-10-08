@@ -21,10 +21,11 @@ int id;
 
 typedef struct Expense {
     int id;                // Unique ID
+    double amount;         // Amount
     string date;           // Format: DD-MM-YYYY
     string category;       // Food, Travel, etc.
     string description;    // Optional
-    double amount;
+    
 }Expense;
 
 

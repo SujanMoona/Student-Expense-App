@@ -41,11 +41,9 @@ void createFile(){
 
 
 
-bool findUser(){
+bool findUser(string uname ,string pass){
  User u;
- 
- ifstream User_info("users.txt");// to read the file of user and password
- login();//user input
+ ifstream User_info("users.txt");// to read the file of user and password 
  
  while (User_info>>u.user_name >> u.password){ 
     if ( uname == u.user_name && pass == u.password ){
