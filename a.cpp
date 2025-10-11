@@ -7,7 +7,7 @@ void gotoxy(int x,int y){
 #endif 
 #include<iostream>
 int main()
-{ system("cls");
+{
     gotoxy(10,5); std::cout << "Hello at (10,5)";
 
 }

@@ -26,15 +26,15 @@ void findPassword(){
         if (storedUser == username && storedHash == hashed){
             cout<< "Login successful - Welcome "<< username << "!\n";
         }
-
     }
 }
 
-ool userExists(const string &username) {// Use when the username already exist in signup
+
+bool userExists(const string &username) {// Use when the username already exist in signup
     ifstream f("users.txt");
     string line;
     while (getline(f, line)) {
-        size_t pos = line.find(',');
+        size_t pos = line.find(','); 
         if (pos != string::npos) {
             if (line.substr(0, pos) == username) return true;
         }

@@ -15,7 +15,7 @@ int main() {
         cout << (choice == 2 ? ">> " : "   ") << "Exit\n";
 
         key = _getch();
-        if (key == 72) choice = (choice + 2) % 3;  // UP arrow
+        if (key == 72) choice = (choice + 2) % 3;  // UP arrow  //here 72 is asccicode for upword key
         else if (key == 80) choice = (choice + 1) % 3;  // DOWN arrow
         else if (key == 13) break;  // Enter key
     }

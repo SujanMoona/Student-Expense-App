@@ -39,38 +39,28 @@ void login_menu(){
     switch(choice+1){
           
         case 1:{
-            system("cls");
-            login();
-            l=findUser();
-            if(findUser()){
-                cout<<"welcome "<<u.user_name<<endl;
-                u.user_name=u.user_name+".txt";
-                ofstream file(u.user_name,ios ::in | ios::out);//to read or write accordin to (<< ,>>);
-        //now this can alloe you to store and write the daily expenses 
+          
+                login();
+                break;
             }
-            else{
-                cout<<"user name not found!"<<endl;
-                login_menu();
-            }
-            break;
-        }
-        case 2:{
-                system("cls");
-                create_file();
             
-            break;
+        
+        case 2:{
+                signup();
+                break;
         }
     }
 
 
-    if(signup || l){
+   /* if(signup || l){
     cout<<(l? "login succesful":"signup succesful")<<endl;
         
-    }
+    }*/
 
-  
+ 
 
 }
+
 void login(){
     bool user_exist=false;
     cout<<"Enter username:";
@@ -79,9 +69,9 @@ void login(){
 
 
  ifstream User_info("users.txt");// to read the file of user and password
- while (User_info>>user_file.user_name >> user_file.password){ 
+ while (User_info>>user_file.username >> user_file.password){ 
     //to avoid duplicate username;
-      if(user.username==user_file.user_name){
+      if(user.username==user_file.username){
         user_exist=true;
       break;// it means user is  exist;
       }
@@ -89,48 +79,49 @@ void login(){
  if(!user_exist){
   cout<<"user not found! try again"<<endl;
   
-  sleep(2000);//to dealy the call login menu call bu 2000 milisecond i.e 2 sec;
+  Sleep(2000);//to dealy the call login menu call bu 2000 milisecond i.e 2 sec;
   login_menu();
  }
  //run until password is correct ..(we can also thinking about adding forget password later)
 do{
  cout<<"Enter password:";
- cin>>user.password();
+ cin>>user.password;
+ 
 }while(user.password!=user_file.password);
 
 }
 
 
-void create_file(){
+void signup(){
  cout<<"Enter username: ";
- cin>>user_name;
+ cin>>user.username;
  ifstream User_info("users.txt");// to read the file of user and password
- while (User_info>>u.user_name >> u.password){ 
+ while (User_info>>user_file.username >> user_file.password){ 
     //to avoid duplicate username;
-      if(user_name==u.user_name){
-        cout<<"user already exist"<<endl;
+      if(user.username==user_file.username){
+        cout<<"User Already Exist"<<endl;
+        Sleep(2000);// to delay the login menu by 2 sec;
         login_menu();
     }
 }
-    User_info.close();
+User_info.close();
     cout<<"Enter password: ";
-    cin>>password;
+    cin>>user.password;
 
  //user_name=user_name+".txt";
- ofstream file(user_name+".txt");
- file<<user_name;
+ ofstream file(user.username+".txt");
+ file<<"This is the msg we have to print;";
  file.close();
 
  ofstream file1("users.txt",ios::app );
- file1<<user_name<<" "<<password<<endl;
+ file1<<user.username<<" "<<user.password<<endl;
  file1.close();
  
  cout<<"signup Successful!"<<endl;
- 
+ Sleep(2000);
+ login_menu();//now after sign up go to login;
 }
 
-
-//to findout is the user exist or not
 
 
 };

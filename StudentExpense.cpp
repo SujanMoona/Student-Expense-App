@@ -16,7 +16,6 @@ struct User
 typedef struct student{
 string name;
 int id;
-
 }user;
 
 typedef struct Expense {

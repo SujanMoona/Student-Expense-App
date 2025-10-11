@@ -28,19 +28,19 @@ class account{
 
 public:
 
-
+//this is main funtion of the account login or signup
 void login_menu(){
    
     int choice=0;
     while(true){
-        system("cls");
-        cout<<(choice==0?">>" :" ")<<"Login"<<endl; 
+        system("cls");// this clears the terminal
+        cout<<(choice==0?">>" :" ")<<"Login"<<endl;  
         cout<<(choice==1?">>" :" ")<<"Signup"<<endl;
     
 
         char key=_getch();
         if(key==72){
-                choice=(choice+1)%2;
+                choice=(choice+1)%2; 
         }else if(key==80){
                 choice=(choice+1)%2;
         }else if(key==13){
@@ -115,7 +115,7 @@ void create_file(){
  file1.close();
  
  cout<<"signup Successful!"<<endl;
- 
+
 }
 
 
@@ -128,18 +128,28 @@ bool findUser(){
  
  while (User_info>>u.username >> u.password){ 
     //to avoid duplicate username;
+<<<<<<< Updated upstream
       if(uname==u.username && pass!=u.password){
      
        user_exist=true;
     } 
      if ( uname == u.username && pass == u.password ){
+=======
+     if ( uname == u.user_name && pass == u.password ){
+>>>>>>> Stashed changes
        return true;   
     }
   
  }
  return false;
+ User_info.close();
  
 }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 };
 
 
@@ -148,7 +158,5 @@ int main(){
 account a;
 a.login_menu();
 return 0;
-
- 
 }
 
