@@ -28,7 +28,6 @@ typedef struct Expense {
     
 }Expense;
 
-
 class functions{
 private:
       int  expenseCount=0;// sr.no
