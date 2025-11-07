@@ -200,12 +200,44 @@ Expense funtions::input() {
 
 string funtions::getDate() {
     int d, m, y;
-    cout << "Enter day: ";
-    cin >> d;
-    cout << "Enter month: ";
-    cin >> m;
-    cout << "Enter year: ";
-    cin >> y;
+    
+    while (true) {
+        cout << "Enter day (1-31): ";
+        cin >> d;
+        cout << "Enter month (1-12): ";
+        cin >> m;
+        cout << "Enter year (e.g., 2023-2025): ";
+        cin >> y;
+
+        // Basic validation
+        if (y < 2000 || y > 2100) {
+            cout << "Invalid year. Please enter a year between 2000 and 2100.\n";
+            continue;
+        }
+        if (m < 1 || m > 12) {
+            cout << "Invalid month. Please enter a month between 1 and 12.\n";
+            continue;
+        }
+        if (d < 1 || d > 31) {
+            cout << "Invalid day. Please enter a day between 1 and 31.\n";
+            continue;
+        }
+        // Handle months with fewer than 31 days
+        if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) {
+            cout << "This month has only 30 days.\n";
+            continue;
+        }
+        // February check for leap year
+        if (m == 2) {
+            bool isLeap = (y % 4 == 0 && (y % 100 != 0 || y % 400 == 0));
+            if ((isLeap && d > 29) || (!isLeap && d > 28)) {
+                cout << "Invalid day for February.\n";
+                continue;
+            }
+        }
+        break; // valid date
+    }
+
     return to_string(d) + "/" + to_string(m) + "/" + to_string(y);
 }
 
