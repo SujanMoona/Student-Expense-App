@@ -1,0 +1,25 @@
+1,120,25/10/2025,food,lunch
+2,60,25/10/2025,drinks,tea
+3,90,26/10/2025,food,poha
+4,200,26/10/2025,travel,bus ticket
+5,45,27/10/2025,food,samosa
+6,180,27/10/2025,shopping,notebook
+7,70,28/10/2025,food,wadapav
+8,250,28/10/2025,bill,light bill
+9,35,29/10/2025,food,chai
+10,130,29/10/2025,food,pav bhaji
+11,400,30/10/2025,shopping,shirt
+12,95,30/10/2025,food,sandwich
+13,165,31/10/2025,drinks,cold coffee
+14,500,31/10/2025,bill,phone recharge
+15,85,1/11/2025,food,pasta
+16,60,2/11/2025,food,idli
+17,210,3/11/2025,travel,auto
+18,50,3/11/2025,food,chai
+19,150,4/11/2025,food,burger
+20,320,4/11/2025,shopping,sweater
+21,75,5/11/2025,food,misal
+22,240,6/11/2025,shopping,powerbank cable
+23,80,6/11/2025,food,frankie
+24,110,7/11/2025,drinks,juice
+25,200,7/11/2025,travel,pune
